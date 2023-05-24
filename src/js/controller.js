@@ -20,7 +20,6 @@ const controlRecipe = async function () {
     await model.loadRecipe(id);
     // 2) Rendering Recipe
     recipeView._clearHTML();
-
     const index = checkExistInBookmarks(model.state.recipe.id);
     if (index > 0) {
       recipeView._render(model.state.bookmarks[index]);
@@ -42,7 +41,7 @@ const controlRecipe = async function () {
 };
 
 const checkExistInBookmarks = function (recipeId) {
-  const index = JSON.parse(localStorage.getItem('bookmarks')).findIndex(
+  const index = JSON.parse(localStorage.getItem('bookmarks'))?.findIndex(
     bookmark => bookmark.id === recipeId
   );
   return index ? index : false;
