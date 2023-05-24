@@ -3,7 +3,6 @@ import { API_KEY, API_URL } from './config.js';
 // import { getJSON, sendJSON } from './helpers.js';
 import { AJAX } from './helpers.js';
 import { RESULTS_PER_PAGE } from './config.js';
-
 export const state = {
   recipe: {
     isBookmarked: false,
@@ -81,8 +80,7 @@ export const updateServings = function (newServings) {
     console.log(newServings);
     state.recipe.ingredients.forEach(ingredient => {
       ingredient.quantity = (ingredient.quantity / oldServings) * newServings;
-
-      ingredient.quantity ? new Fraction(ingredient.quantity).toString() : '';
+      ingredient.quantity ? ingredient.quantity.toString() : '';
     });
     state.recipe.servings = newServings;
   }
