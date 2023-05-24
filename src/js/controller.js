@@ -194,7 +194,6 @@ const controlAddRecipe = async function (newRecipe) {
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
     // window.history.back()
   } catch (error) {
-    console.log(error);
     addNewRecipe._renderError(error.message);
   }
 };

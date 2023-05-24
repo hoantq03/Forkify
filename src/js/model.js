@@ -76,8 +76,6 @@ export const getSearchResultsPage = function (
 export const updateServings = function (newServings) {
   if (newServings >= 1) {
     const oldServings = state.recipe.servings;
-    console.log(oldServings);
-    console.log(newServings);
     state.recipe.ingredients.forEach(ingredient => {
       ingredient.quantity = (ingredient.quantity / oldServings) * newServings;
       ingredient.quantity ? ingredient.quantity.toString() : '';
@@ -94,8 +92,6 @@ export const addBookmark = function (recipe) {
   // set is marked to true
   state.recipe.isBookmarked = true;
   //push this bookmark to state.bookmarks array
-  console.log(state.bookmarks);
-  console.log('pushed');
   state.bookmarks.push(recipe);
   // storage new data to local storage
   persistBookmarks();
@@ -103,8 +99,6 @@ export const addBookmark = function (recipe) {
 
 export const deleteBookmark = function (recipe) {
   //set is marked = false
-  console.log('deleted');
-  console.log(state.bookmarks);
   state.recipe.isBookmarked = false;
   //find index of bookmark we want to delete
   const index = state.bookmarks.findIndex(

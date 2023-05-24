@@ -9,7 +9,6 @@ class bookmarkView extends View {
     let resultPreview = document.querySelector('.preview');
     resultPreview?.addEventListener('click', e => {
       e.preventDefault();
-      console.log(hi);
       handler();
     });
   }

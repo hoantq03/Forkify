@@ -27,19 +27,15 @@ class RecipeView extends View {
 
     decreaseBtn?.addEventListener('click', e => {
       const newServings = this._data.servings - 1;
-      // console.log(newServings);
       handler(newServings);
     });
     increaseBtn?.addEventListener('click', e => {
       const newServings = this._data.servings + 1;
-      // console.log(newServings);
       handler(newServings);
     });
   }
 
   _generateMarkup(data) {
-    console.log(data.id);
-    console.log(data);
     return `
     <figure class="recipe__fig">
       <img src="${data.image}" alt="${data.title}" class="recipe__img" />
