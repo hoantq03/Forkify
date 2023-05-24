@@ -13,6 +13,7 @@ import { MODAL_CLOSE_SECOND } from './config.js';
 
 const controlRecipe = async function () {
   try {
+    console.log(model.state.recipe);
     const id = window.location.hash;
     if (!id) return;
     recipeView._renderSpinner();
@@ -20,8 +21,10 @@ const controlRecipe = async function () {
     await model.loadRecipe(id);
     // 2) Rendering Recipe
     recipeView._clearHTML();
+
     const index = checkExistInBookmarks(model.state.recipe.id);
-    if (index > 0) {
+
+    if (index >= 0) {
       recipeView._render(model.state.bookmarks[index]);
     } else {
       recipeView._render(model.state.recipe);
@@ -44,7 +47,8 @@ const checkExistInBookmarks = function (recipeId) {
   const index = JSON.parse(localStorage.getItem('bookmarks'))?.findIndex(
     bookmark => bookmark.id === recipeId
   );
-  return index ? index : false;
+  console.log(index);
+  return index;
 };
 
 const controlAddBookmark = function () {
@@ -84,6 +88,7 @@ const controlAddBookmark = function () {
     // rerender recipe view
     recipeView._render(model.state.recipe);
   }
+  console.log(model.state.bookmarks);
 };
 
 const controlSearchResults = async function () {
