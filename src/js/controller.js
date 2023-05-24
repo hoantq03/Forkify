@@ -1,4 +1,3 @@
-const recipeContainer = document.querySelector('.recipe');
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 //
