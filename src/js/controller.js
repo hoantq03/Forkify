@@ -1,6 +1,3 @@
-// import 'core-js/stable';
-// import 'regenerator-runtime/runtime';
-//
 import * as model from './model.js';
 import recipeView from './view/recipeView.js';
 import searchView from './view/searchView.js';
@@ -12,7 +9,6 @@ import addNewRecipe from './view/addNewRecipe.js';
 import { MODAL_CLOSE_SECOND } from './config.js';
 //
 // https://forkify-api.herokuapp.com/v2/recipes/#5ed6604591c37cdc054bc886
-
 ///////////////////////////////////////
 
 const controlRecipe = async function () {
